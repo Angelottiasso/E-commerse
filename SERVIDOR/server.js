@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose'); // 1. Agregamos la importación de mongoose
+const mongoose = require('mongoose');
 
-const app = express(); // 2. PRIMERO inicializamos la variable app
+const app = express(); // 1. Primero creamos la app
 
-app.use(cors({ origin: '*' })); // 3. LUEGO aplicamos CORS
+app.use(cors({ origin: '*' })); // 2. Segundo aplicamos CORS de forma segura
+app.use(express.json()); // Permite al servidor entender formato JSON
 
 // Conexión a MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
