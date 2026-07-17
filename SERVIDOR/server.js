@@ -27,3 +27,8 @@ app.get('/api/productos', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+
+const cors = require('cors');
+// ... 
+// Esta línea es la que da el permiso:
+app.use(cors({ origin: '*' }));
