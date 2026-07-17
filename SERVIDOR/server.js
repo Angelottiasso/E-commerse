@@ -1,10 +1,10 @@
-require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors'); // 1. Importamos CORS
 
-app.use(cors({ origin: '*' }));
 const app = express();
+
+// 2. Le decimos a nuestra app que use CORS y permita todas las conexiones
+app.use(cors()); 
 
 // Conexión a MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
