@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TresMosqueteros_Store</title>
+    <!-- Agregamos el CSS de Bootstrap requerido para el diseño -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -47,52 +49,22 @@
                 </ul>
             </nav>
             <footer>
-                <p class="texto-footer">@2026 TresMosqueteros_Store</p>z
+                <p class="texto-footer">@2026 TresMosqueteros_Store</p>
             </footer>
         </aside>
         <main>
             <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-            <div id="contenedor-productos" class="contenedor-productos">
+            <!-- Agregamos la clase 'row' de Bootstrap al contenedor principal -->
+            <div id="contenedor-productos" class="contenedor-productos row">
                 <!-- Esto se va a rellenar con JS -->
             </div>
         </main>
     </div>
     
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/menu.js"></script>
-
-        <div class="container mt-5">
-            <div class="row" id="contenedor-productos"></div>
-        </div>
-
-    <script>
-        // Coloca aquí la URL exacta que te generó Render y añádele /api/productos
-        const urlAPI = 'https://e-commerse-b1jt.onrender.com';
-
-        fetch(urlAPI)
-            .then(respuesta => respuesta.json())
-            .then(datos => {
-                const contenedor = document.getElementById('contenedor-productos');
-                
-                datos.forEach(producto => {
-                    // Dibujamos las tarjetas implementando las clases de Bootstrap
-                    contenedor.innerHTML += `
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <img src="${producto.imagen}" class="card-img-top" alt="${producto.titulo}">
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">${producto.titulo}</h5>
-                                    <p class="card-text text-muted mb-1">${producto.categoria.nombre}</p>
-                                    <p class="card-text fw-bold mb-3">Precio: $${producto.precio}</p>
-                                    <button class="btn btn-dark mt-auto">Añadir al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-            })
-            .catch(error => console.error('Error al cargar la base de datos:', error));
-    </script>
 </body>
-    
+</html>    
