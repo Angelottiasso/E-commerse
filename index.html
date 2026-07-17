@@ -61,4 +61,38 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/menu.js"></script>
+
+        <div class="container mt-5">
+            <div class="row" id="contenedor-productos"></div>
+        </div>
+
+    <script>
+        // Coloca aquí la URL exacta que te generó Render y añádele /api/productos
+        const urlAPI = 'https://e-commerse-b1jt.onrender.com';
+
+        fetch(urlAPI)
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                const contenedor = document.getElementById('contenedor-productos');
+                
+                datos.forEach(producto => {
+                    // Dibujamos las tarjetas implementando las clases de Bootstrap
+                    contenedor.innerHTML += `
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <img src="${producto.imagen}" class="card-img-top" alt="${producto.titulo}">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">${producto.titulo}</h5>
+                                    <p class="card-text text-muted mb-1">${producto.categoria.nombre}</p>
+                                    <p class="card-text fw-bold mb-3">Precio: $${producto.precio}</p>
+                                    <button class="btn btn-dark mt-auto">Añadir al Carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => console.error('Error al cargar la base de datos:', error));
+    </script>
+</body>
     
