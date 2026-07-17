@@ -1,7 +1,7 @@
 let productos = [];
 
 // 1. Conectamos con tu base de datos alojada en Render
-fetch("https://e-commerce-b1jt.onrender.com/api/productos")
+fetch("[https://e-commerce-b1jt.onrender.com/api/productos](https://e-commerce-b1jt.onrender.com/api/productos)")
 
     .then(response => response.json())
     .then(data => {
